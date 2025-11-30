@@ -1,3 +1,4 @@
+import { PlusIcon } from "lucide-react";
 import Link from "next/link";
 import ThemeToggleButton from "../ThemeToggleButton";
 
@@ -11,12 +12,24 @@ const Header = () => {
 					<h1
 						className="text-2xl font-semibold"
 						aria-label="App Name">
-						NSP App
+						User CRUD App
 					</h1>
 				</Link>
 
 				<nav className="flex items-center gap-4">
 					<Link href={"/"}>Home</Link>
+
+					<Link
+						className="flex gap-2"
+						href={"/student/create"}>
+						<PlusIcon /> Student{" "}
+					</Link>
+
+					<Link
+						className="flex gap-2"
+						href={"/teacher/create"}>
+						<PlusIcon /> Teacher{" "}
+					</Link>
 
 					<ThemeToggleButton />
 				</nav>
