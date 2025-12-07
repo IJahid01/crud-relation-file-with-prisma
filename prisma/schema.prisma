@@ -9,3 +9,20 @@ generator client {
 datasource db {
   provider = "sqlite"
 }
+
+model Teacher {
+  tid       String    @id @default(uuid())
+  tfullname String
+  tsubject  String
+  tstudents Student[]
+}
+
+model Student {
+  sid          String  @id @default(uuid())
+  sfullname    String
+  semail       String  @unique
+  sgender      String
+  sphonenumber String  @unique
+  teacher      Teacher @relation(fields: [teacherTid], references: [tid], onDelete: Cascade, onUpdate: Cascade)
+  teacherTid   String
+}
