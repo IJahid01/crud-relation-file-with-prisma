@@ -5,6 +5,8 @@ export const teacherFormSchema = z.object({
 	tSubject: z.string().min(1, "Please Select a subject"),
 });
 
+export type TeacherFormType = z.Infer<typeof teacherFormSchema>;
+
 export const studentFormSchema = z.object({
 	sFullName: z.string().min(6),
 	sEmail: z.email().min(13),
